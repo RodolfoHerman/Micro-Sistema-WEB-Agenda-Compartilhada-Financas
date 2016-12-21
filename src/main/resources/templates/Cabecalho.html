@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"	  
+	  layout:decorator="LayoutPadrao">
+
+<nav class="navbar navbar-inverse navbar-static-top">
+
+		<nav aria-label="...">	
+			
+			<ul class="pager">
+			
+				<li class="previous">
+			
+					<a th:href="@{/titulos}"> 
+						<span class="glyphicon glyphicon-home" title="Home"></span>
+					</a>
+				</li>
+	      	
+	      	
+	      	
+	      		<li class="next">
+	        		<a th:href="@{/logout}">
+	        			<span class="glyphicon glyphicon-log-out" title="Sair"></span>
+	        		</a>
+	      		</li> 
+	      		
+	    	</ul>	
+	    				
+		</nav>
+</nav>
+
+
+
+</html>

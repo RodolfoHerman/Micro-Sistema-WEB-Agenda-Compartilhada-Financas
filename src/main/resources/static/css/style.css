@@ -1,0 +1,45 @@
+@media(min-width: 768px) {
+
+	.panel-default {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+
+	.alert {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+	
+	
+}
+
+.texto-align {
+	
+	text-align: center;
+}
+
+.borda-maior{
+	
+	display: block;
+	text-align: center;
+	border: 2px solid black;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 10px;
+	
+}
+
+
+.navbar {
+	background: #4682B4;
+}
+
+.rodolfo-titulo-panel {
+	float: left;
+	margin-top: 2px;
+}
+
+.rodolfo-link-panel {
+	float: right;
+	padding : 0px;
+}
