@@ -100,8 +100,8 @@ public class Titulo {
 		this.valorPago = valorPago;
 	}
 
+	//@ChecarEnum(values = {"Pendente", "Pago"},	message = "Status é obrigatório")
 	@Enumerated (EnumType.STRING)
-	@ChecarEnum(values = {"Pendente", "Pago"},	message = "Status é obrigatório")
 	public StatusTitulo getStatus() {
 		return status;
 	}
@@ -112,12 +112,14 @@ public class Titulo {
 	
 	@Transient
 	public boolean isPendente () {
-		return StatusTitulo.PENDENTE.equals(this.status);
+		return (this.status == null ? false :
+			StatusTitulo.PENDENTE.equals(this.status));
 	}
 	
 	@Transient
 	public boolean isRecebido () {
-		return StatusTitulo.RECEBIDO.equals(this.status);
+		return (this.status == null ? false : 
+			StatusTitulo.RECEBIDO.equals(this.status));
 	}	
 	
 	@Transient

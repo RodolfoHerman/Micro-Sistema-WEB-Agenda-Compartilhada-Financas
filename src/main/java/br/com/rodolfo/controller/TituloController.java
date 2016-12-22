@@ -43,7 +43,13 @@ public class TituloController {
 	}
 	
 	@RequestMapping (method = RequestMethod.POST)
-	public String salvar (Titulo titulo, Errors errors, RedirectAttributes attributes) {
+	public String salvar (@Validated Titulo titulo, Errors errors, RedirectAttributes attributes) {
+		
+		
+		if ((titulo.getStatus() != null) && (titulo.getStatus().equals(StatusTitulo.BRANCO.getDescricao()))) {
+			
+			errors.rejectValue("status", null, "Status é obrigatório");			
+		}
 		
 		if (titulo.isRecebido()) {
 			
