@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +20,7 @@ import br.com.rodolfo.repository.filter.TituloFiltro;
 import br.com.rodolfo.repository.filter.ValoresPagosFiltro;
 import br.com.rodolfo.serviceLocator.CadastroTituloService;
 import br.com.rodolfo.util.Processamento;
+import br.com.rodolfo.validation.BeanValidation;
 
 @Controller
 @RequestMapping ("/titulos")
@@ -43,30 +43,10 @@ public class TituloController {
 	}
 	
 	@RequestMapping (method = RequestMethod.POST)
-	public String salvar (@Validated Titulo titulo, Errors errors, RedirectAttributes attributes) {
+	public String salvar (Titulo titulo, Errors errors, RedirectAttributes attributes) {
 		
-		if (titulo.isRecebido()) {
-			
-			if (titulo.isValorPagamentoValido()) {
-				
-				errors.rejectValue("valorPago", null, "Valor de pagamento está menor que o valor real");
-				
-			}
-			
-			if (titulo.getDataPagamento() == null) {
-				
-				errors.rejectValue("dataPagamento", null, "A data de pagamento é obrigatória");
-								
-			}
-			
-			if(titulo.getValorPago() == null) {
-				
-				errors.rejectValue("valorPago", null, "O valor de pagamento é obrigatório");
-				
-			}
-						
-			
-		}
+		
+		BeanValidation.getErrors(errors, titulo);
 		
 		if (errors.hasErrors() ) {
 			
