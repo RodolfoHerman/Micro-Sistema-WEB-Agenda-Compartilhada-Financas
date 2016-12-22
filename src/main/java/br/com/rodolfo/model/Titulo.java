@@ -13,6 +13,10 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+import javax.validation.constraints.DecimalMax;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -40,7 +44,7 @@ public class Titulo {
 		this.codigo = codigo;
 	}
 	
-	//@Size (max = 60, message = "A descrição não pode possuir mais do que 60 caracteres")
+	@Size (max = 60, message = "A descrição não pode possuir mais do que 60 caracteres")
 	@NotEmpty (message = "A descrição é obrigatória")
 	public String getDescricao() {
 		return descricao;
@@ -60,7 +64,7 @@ public class Titulo {
 		this.dataPagamento = dataPagamento;
 	}
 	
-	//@NotNull (message = "A data de vencimento é obrigatória")
+	@NotNull (message = "A data de vencimento é obrigatória")
 	@Temporal (TemporalType.DATE)
 	@DateTimeFormat (pattern = "dd/MM/yyyy")
 	public Date getDataVencimento() {
@@ -71,9 +75,9 @@ public class Titulo {
 		this.dataVencimento = dataVencimento;
 	}
 	
-	//@NotNull (message = "O valor real é obrigatório")
-	//@DecimalMin (value = "0.00", message = "Menor valor permitido em Valor Real é R$0,00")
-	//@DecimalMax (value = "1000000.00", message = "Maior valor permitido é R$1.000.000,00")
+	@NotNull (message = "O valor real é obrigatório")
+	@DecimalMin (value = "0.00", message = "Menor valor permitido em Valor Real é R$0,00")
+	@DecimalMax (value = "1000000.00", message = "Maior valor permitido é R$1.000.000,00")
 	@NumberFormat (pattern = "#,##0.00")
 	public BigDecimal getValor() {
 		return valor;
@@ -83,8 +87,8 @@ public class Titulo {
 		this.valor = valor;
 	}
 	
-	//@DecimalMin (value = "0.00", message = "Menor valor permitido em Valor de Pagamento é R$0,00")
-	//@DecimalMax (value = "1000000.00", message = "Maior valor permitido é R$1.000.000,00")
+	@DecimalMin (value = "0.00", message = "Menor valor permitido em Valor de Pagamento é R$0,00")
+	@DecimalMax (value = "1000000.00", message = "Maior valor permitido é R$1.000.000,00")
 	@NumberFormat (pattern = "#,##0.00")
 	public BigDecimal getValorPago() {
 		return valorPago;
