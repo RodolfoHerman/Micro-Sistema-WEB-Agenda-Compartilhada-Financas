@@ -3,17 +3,18 @@ package br.com.rodolfo.config;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import javax.sql.DataSource;
+
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
+
 @Configuration
 public class MainConfig {
 
     @Bean
-    public DataSource dataSource() throws URISyntaxException {
+    public DriverManagerDataSource dataSource() throws URISyntaxException {
         URI dbUri = new URI(System.getenv("DATABASE_URL"));
 
         String username = dbUri.getUserInfo().split(":")[0];
