@@ -26,7 +26,7 @@ public class BeanValidation {
 		}
 		
 		if (titulo.getValor() == null ) {
-			errors.rejectValue("valor", null, "O valor de real é obrigatório");
+			errors.rejectValue("valor", null, "O valor real é obrigatório");
 		} else if (titulo.getValor().compareTo(new BigDecimal("0.00")) < 0 ) {
 			errors.rejectValue("valor", null, "Menor valor permitido em Valor Real é R$0,00");
 		}
