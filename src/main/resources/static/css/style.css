@@ -43,3 +43,45 @@
 	float: right;
 	padding : 0px;
 }
+
+.digits .well {
+	text-align: center;
+	cursor: pointer;
+	font-weight: bold;
+	font-size: 2em;
+}
+
+.result, .clear {
+	text-align: right;
+	font-weight: bold;
+	font-size: 2em;
+}
+
+.clear {
+	text-align: center;
+	cursor: pointer;
+}
+
+.rodolfo-calculadora-igual {
+	background: #90EE90;
+}
+
+.rodolfo-calculadora-sinais {
+	background: #00BFFF;
+}
+
+.rodolfo-calculadora-limpar {
+	background: #FFB6C1;
+}
+
+.rodolfo-calculadora-ponto {
+	background: #A9A9A9;
+}
+
+.aw-footer-disclaimer{
+	font-size:92%;
+	display:block;
+	color:#777;
+	line-height:4;
+	text-align:center
+}
