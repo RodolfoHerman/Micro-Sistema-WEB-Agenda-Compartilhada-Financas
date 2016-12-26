@@ -13,11 +13,16 @@ public class SegurancaController {
 		
 		if (user != null) {
 			
-			return "redirect:/titulos";
+			return "redirect:/index";
 			
 		}
 		
 		return "Login";
 	}
+	
+	@RequestMapping("/index")
+	public String index () {
+		return "Index";
+	}	
 	
 }

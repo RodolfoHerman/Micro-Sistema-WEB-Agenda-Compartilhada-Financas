@@ -22,12 +22,4 @@ public class CadastrosApplication {
 		return (new FixedLocaleResolver (new Locale ("pt", "BR")));
 	}
 	
-	public static class MvcConfig extends WebMvcConfigurerAdapter {
-		
-		@Override
-		public void addViewControllers (ViewControllerRegistry registry) {
-			registry.addRedirectViewController("/", "/titulos");
-		}
-		
-	}
 }
