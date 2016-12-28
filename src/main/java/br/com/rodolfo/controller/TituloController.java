@@ -20,7 +20,7 @@ import br.com.rodolfo.repository.filter.TituloFiltro;
 import br.com.rodolfo.repository.filter.ValoresPagosFiltro;
 import br.com.rodolfo.serviceLocator.CadastroTituloService;
 import br.com.rodolfo.util.Processamento;
-import br.com.rodolfo.validation.BeanValidation;
+import br.com.rodolfo.validation.TituloBeanValidation;
 
 @Controller
 @RequestMapping ("/titulos")
@@ -46,7 +46,7 @@ public class TituloController {
 	public String salvar (Titulo titulo, Errors errors, RedirectAttributes attributes) {
 		
 		
-		BeanValidation.getErrors(errors, titulo);
+		TituloBeanValidation.getErrors(errors, titulo);
 		
 		if (errors.hasErrors() ) {
 			

@@ -8,6 +8,8 @@ $('#confirmacaoExclusaoModal').on('show.bs.modal', function (event){
 	var form = modal.find('form');
 	var actionText = form.data('url-base');
 	
+	console.log(actionText);
+	
 	if (!actionText.endsWith('/')) {
 		
 		actionText = actionText + '/';
@@ -47,6 +49,33 @@ $(function(){
 		
 		
 	});
+	
+	
+	$('.js-botao-excluir').on('click', function(){
+		
+		let btnTitulos = 'btnExcluirPesquisaTitulos';
+		var id = jQuery(this).attr("id");
+		
+		var modal = $('#confirmacaoExclusaoModal');
+		var form = modal.find('form');
+		var src = form.attr('data-url-base');
+		
+		if (id == btnTitulos) {
+			
+			var dst = src.substring(0, src.lastIndexOf("/")+1) + "titulos";
+
+			form.attr('data-url-base', dst);
+			
+		} else {
+			
+			
+			var dst = src.substring(0, src.lastIndexOf("/")+1) + "agenda";
+
+			form.attr('data-url-base', dst);
+		}
+		
+		
+	});	
 	
 	$('.js-limpar-campos').on('click', function(event){
 		

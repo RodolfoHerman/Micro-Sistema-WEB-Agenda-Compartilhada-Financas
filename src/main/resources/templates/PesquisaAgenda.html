@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="LayoutPadrao">
+
+
+	<div class="section" layout:fragment="conteudo">
+	
+		<div layout:include="MensagemGeral"></div>
+	
+		<div class="panel panel-default">
+		
+			<div class="panel-heading">
+				<div class="clearfix">
+				
+					<h1 class="panel-title rodolfo-titulo-panel">Agenda</h1>
+					<a class="btn btn-link rodolfo-link-panel" th:href="@{/agenda/novo}">Novo Contato</a>
+				
+				</div>
+			</div>
+		
+		
+			<div class="panel-body" th:object="${filtro}">
+			
+				<form method="GET" id="formPesquisa" class="form-inline" th:action="@{/agenda}">
+					
+					<div class="form-group">
+						
+						<input type="text" class="form-control" placeholder="Pesquisar nome"
+							th:field="*{nome}"></input>
+						
+						<button type="submit" class="btn btn-default" name="button" title="Pesquisar" data-placement="top">
+							<i class="glyphicon glyphicon-search"></i>
+						</button>
+						
+						<button type="reset" class="btn btn-default js-limpar-campos" name="button" title="Limpar" data-placement="top">
+							<i class="glyphicon glyphicon-remove"></i>
+						</button>
+					</div>
+				
+				
+				</form>
+			
+				<br></br>
+				
+				<div class="table-responsive">
+					
+					<table class="table table-bordered table-striped">
+					
+						<thead>
+							<tr>
+								<th class="text-center col-md-1">#</th>
+								<th class="text-left col-md-3">Nome</th>
+								<th class="text-center col-md-3">Telefone Residencial</th>
+								<th class="text-center col-md-3">Telefone Celular</th>
+								<th class="text-center col-md-1"></th>
+							</tr>
+						</thead>
+						
+						<tbody>
+							<tr th:each="contato : ${listContatos}" class="" th:classappend="${#strings.length(contato.nome)} == 1 ? 'warning'">
+								<td class="text-center" th:text="${#strings.length(contato.nome)} > 1 ? ${contato.codigo} : ''"></td>
+								<td class="" th:text="${contato.nome}" th:classappend="${#strings.length(contato.nome)} > 1 ? 'text-left' : 'text-center'"></td>
+								<td class="text-center" th:text="${#strings.length(contato.nome)} > 1 ? ${contato.telefoneRes} : ''"></td>
+								<td class="text-center" th:text="${#strings.length(contato.nome)} > 1 ? ${contato.telefoneCel} : ''"></td>
+								<td class="text-center">
+									<a class="btn btn-link btn-xs" title="Editar" data-placement="top" th:if="${#strings.length(contato.nome)} > 1"
+										rel="tooltip" th:href="@{agenda/{codigo}(codigo=${contato.codigo})}">
+											<span class="glyphicon glyphicon-pencil"></span>
+									</a>
+									<a class="btn btn-link btn-xs js-botao-excluir" id="btnExcluirPesquisaAgenda" data-toggle="modal"
+										data-target="#confirmacaoExclusaoModal" th:if="${#strings.length(contato.nome)} > 1"
+										th:attr="data-codigo=${contato.codigo}, data-descricao=${contato.nome}"
+										title="Excluir" data-placement="top" rel="tooltip"> <span
+											class="glyphicon glyphicon-remove"></span>
+									</a>
+								</td>
+							</tr>
+						</tbody>
+					
+					</table>
+				
+				</div>
+				
+				<div layout:include="DialogoConfirmacaoExclusao"></div>
+			
+			</div>
+	
+	
+	</div>
+
+</div>
+	
+	
+</html>	

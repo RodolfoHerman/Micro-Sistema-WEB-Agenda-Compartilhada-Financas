@@ -6,7 +6,7 @@ import org.springframework.validation.Errors;
 
 import br.com.rodolfo.model.Titulo;
 
-public class BeanValidation {
+public class TituloBeanValidation {
 
 	
 	public static void getErrors (Errors errors, Titulo titulo) {

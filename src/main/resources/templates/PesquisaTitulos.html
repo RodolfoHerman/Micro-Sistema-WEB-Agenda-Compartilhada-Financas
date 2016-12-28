@@ -15,10 +15,9 @@
 
 		<div class="panel-heading">
 			<div class="clearfix">
-				<h1 class="panel-title rodolfo-titulo-panel">Pesquisa de
-					Títulos</h1>
+				<h1 class="panel-title rodolfo-titulo-panel">Contas</h1>
 				<a class="btn btn-link rodolfo-link-panel"
-					th:href="@{/titulos/novo}">Novo Título</a>
+					th:href="@{/titulos/novo}">Nova Conta</a>
 			</div>
 		</div>
 
@@ -85,17 +84,19 @@
 							<td class="text-center" th:text="${titulo.recebido} ? ${{titulo.dataPagamento}} : ''"></td>
 							<td class="text-center" th:text="${titulo.recebido} ? |R$ ${{titulo.valorPago}}| : ''"></td>
 							
-							<td class="text-center"><a class="btn btn-link btn-xs"
-								th:href="@{/titulos/{codigo}(codigo=${titulo.codigo})}"
-								title="Editar" data-placement="top" rel="tooltip"> <span
-									class="glyphicon glyphicon-pencil"></span>
-							</a> 
-							<a class="btn btn-link btn-xs" data-toggle="modal"
-								data-target="#confirmacaoExclusaoModal"
-								th:attr="data-codigo=${titulo.codigo}, data-descricao=${titulo.descricao}"
-								title="Excluir" data-placement="top" rel="tooltip"> <span
-									class="glyphicon glyphicon-remove"></span>
-							</a>
+							<td class="text-center">
+								
+								<a class="btn btn-link btn-xs"
+									th:href="@{/titulos/{codigo}(codigo=${titulo.codigo})}"
+									title="Editar" data-placement="top" rel="tooltip"> <span
+										class="glyphicon glyphicon-pencil"></span>
+								</a> 
+								<a class="btn btn-link btn-xs js-botao-excluir" id="btnExcluirPesquisaTitulos" data-toggle="modal"
+									data-target="#confirmacaoExclusaoModal"
+									th:attr="data-codigo=${titulo.codigo}, data-descricao=${titulo.descricao}"
+									title="Excluir" data-placement="top" rel="tooltip"> <span
+										class="glyphicon glyphicon-remove"></span>
+								</a>
 
 
 							</td>
