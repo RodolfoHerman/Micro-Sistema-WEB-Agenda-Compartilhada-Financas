@@ -1,0 +1,1 @@
+insert into CONTATO values (DEFAULT, 'W', 'null', 'null');

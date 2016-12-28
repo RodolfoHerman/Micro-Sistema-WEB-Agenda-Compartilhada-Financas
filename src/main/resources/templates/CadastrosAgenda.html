@@ -35,7 +35,7 @@
 					</div>
 					
 					<div class="form-group" th:classappend="${#fields.hasErrors('telefoneRes')} ? has-error">
-						<label for="telefoneRes" class="col-sm-2 control-label">Telefone Residencial</label>
+						<label for="telefoneRes" class="col-sm-2 control-label">Telefone Fixo</label>
 						<div class="col-sm-2">
 							<input type="text" class="form-control bfh-phone" data-format=" (dd)dddd-dddd" 
 								id="telefoneRes" th:field="*{telefoneRes}"></input>
@@ -55,7 +55,7 @@
 						<div class="btn-group col-sm-offset-2 col-sm-10">
 							
 							<button type="submit" class="btn btn-primary">Salvar</button>
-							<a class="btn btn-primary">Cancelar</a>
+							<a class="btn btn-primary" th:href="@{/agenda}">Cancelar</a>
 							
 						</div>
 					
