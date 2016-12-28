@@ -16,6 +16,10 @@ public class TituloBeanValidation {
 			errors.rejectValue("descricao", null, "A descrição é obrigatória");
 		}
 		
+		if (titulo.getDescricao().length() > 180) {
+			errors.rejectValue("descricao", null, "O número máximo de caracteres na descrição é 180");
+		}
+		
 		if (titulo.getDataVencimento() == null ) {
 			errors.rejectValue("dataVencimento", null, "A data de vencimento é obrigatória");
 		}

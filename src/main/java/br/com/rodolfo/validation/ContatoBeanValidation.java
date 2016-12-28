@@ -10,9 +10,11 @@ public class ContatoBeanValidation {
 	public static void getErrors (Contato contato, Errors errors) {
 		
 		if (contato.getNome() == null || contato.getNome().trim().equals("")) {
-			
 			errors.rejectValue("nome", null, "Nome é obrigatório");
-			
+		}
+		
+		if (contato.getNome().length() > 180) {
+			errors.rejectValue("nome", null, "O número máximo de caracteres no nome é 180");
 		}
 		
 		if (contato.getNome().trim().length() == 1) {
