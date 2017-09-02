@@ -17,7 +17,9 @@ Obs: o deploy do sistema foi realizado na plataforma [heroku](https://www.heroku
 
 ## Login
 
-Para entrar no sistema web ([link aqui](https://cadastrosteste.herokuapp.com/login)) é necessário informar:
+Para entrar no sistema web ([https://cadastrosteste.herokuapp.com/login](https://cadastrosteste.herokuapp.com/login)) é necessário informar:
 
 - Login: usuario
 - Senha: usuario
+
+![web](https://github.com/RodolfoHerman/Micro-Sistema-WEB-Agenda-Compartilhada-Financias-/blob/master/web.png)
