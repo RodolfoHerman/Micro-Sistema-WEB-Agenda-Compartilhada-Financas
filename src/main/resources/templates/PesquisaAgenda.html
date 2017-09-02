@@ -34,7 +34,7 @@
 							<i class="glyphicon glyphicon-search"></i>
 						</button>
 						
-						<button type="reset" class="btn btn-default js-limpar-campos" name="button" title="Limpar" data-placement="top">
+						<button type="reset" class="btn btn-default" id="limpar-campos" name="button" title="Limpar" data-placement="top">
 							<i class="glyphicon glyphicon-remove"></i>
 						</button>
 					</div>
@@ -69,7 +69,7 @@
 										rel="tooltip" th:href="@{agenda/{codigo}(codigo=${contato.codigo})}">
 											<span class="glyphicon glyphicon-pencil"></span>
 									</a>
-									<a class="btn btn-link btn-xs js-botao-excluir" id="btnExcluirPesquisaAgenda" data-toggle="modal"
+									<a class="btn btn-link btn-xs" onclick="excluir(this)" name="btnExcluirPesquisaAgenda" data-toggle="modal"
 										data-target="#confirmacaoExclusaoModal" th:if="${#strings.length(contato.nome)} > 1"
 										th:attr="data-codigo=${contato.codigo}, data-descricao=${contato.nome}"
 										title="Excluir" data-placement="top" rel="tooltip"> <span

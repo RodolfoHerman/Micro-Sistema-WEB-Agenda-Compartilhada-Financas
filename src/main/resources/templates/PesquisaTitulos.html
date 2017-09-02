@@ -45,7 +45,7 @@
 							<i class="glyphicon glyphicon-search"></i>
 						</button>
 						
-						<button type="reset" class="btn btn-default js-limpar-campos" title="Limpar"
+						<button type="reset" class="btn btn-default" id="limpar-campos" title="Limpar"
 							data-placement="top" name="button">
 							<i class="glyphicon glyphicon-remove"></i>
 						</button>
@@ -91,7 +91,7 @@
 									title="Editar" data-placement="top" rel="tooltip"> <span
 										class="glyphicon glyphicon-pencil"></span>
 								</a> 
-								<a class="btn btn-link btn-xs js-botao-excluir" id="btnExcluirPesquisaTitulos" data-toggle="modal"
+								<a class="btn btn-link btn-xs js-botao-excluir" onclick="excluir(this)" name="btnExcluirPesquisaTitulos" data-toggle="modal"
 									data-target="#confirmacaoExclusaoModal"
 									th:attr="data-codigo=${titulo.codigo}, data-descricao=${titulo.descricao}"
 									title="Excluir" data-placement="top" rel="tooltip"> <span
