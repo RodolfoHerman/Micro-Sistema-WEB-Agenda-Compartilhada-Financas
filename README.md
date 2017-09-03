@@ -12,6 +12,7 @@ Micro sistema WEB com a finalidade de compartilhar agenda telefônica e, além d
 - ORM Hibernate
 - Spring Boot
 - Banco de Dados PostgreSQL
+- Apache MAVEN
 
 Obs: o deploy do sistema foi realizado na plataforma [heroku](https://www.heroku.com/)
 
